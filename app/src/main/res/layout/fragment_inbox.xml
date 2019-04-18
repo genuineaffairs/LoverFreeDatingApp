@@ -1,0 +1,85 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white"
+    tools:context="com.brl.loverfreedatingapp.Inbox.Inbox_F">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/who_liked_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_corner"
+                android:text="See who liked you"
+                android:textAllCaps="true"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Matches"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/pink_color"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="10dp">
+            <com.chauthai.overscroll.RecyclerViewBouncy
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/match_list">
+
+            </com.chauthai.overscroll.RecyclerViewBouncy>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="No other Match Found yet."
+                android:textColor="@color/dimgray"
+                android:textSize="13dp"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:id="@+id/no_match_txt"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/pink_color"/>
+
+        <com.chauthai.overscroll.RecyclerViewBouncy
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:id="@+id/inboxlist">
+
+        </com.chauthai.overscroll.RecyclerViewBouncy>
+    </LinearLayout>
+</FrameLayout>

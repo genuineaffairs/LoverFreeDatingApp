@@ -1,0 +1,29 @@
+﻿<resources>
+    <string name="app_name">Meet&amp;Date Free Dating App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phonetext">Enter a phone number that can be used to verify your identity with a text message or phone call. </string>
+
+    <string name="facebook_app_id">2225802650776046</string>
+    <string name="fb_login_protocol_scheme">fb2225802650776046</string>
+
+    <string name="admob_app_id">ca-app-pub-1891195426382339~9539042271</string>
+
+    <string name="my_Interstitial_Add">ca-app-pub-1891195426382339/7010039715</string>
+
+    <string name="my_Interstitial_Add_2">ca-app-pub-1891195426382339/9347470589</string>
+
+    <string name="subscription_txt">By tapping “Continue”, your payment will be charged to your Google Play
+        account, and your subscription will automatically renew for the same
+        package length at the same price until you cancel it in settings in the
+        Google Play store at least 24 hours prior to the end of the current period.
+        By tapping “Continue”, you agree to our Privacy Policy and Terms.</string>
+
+    <string name="giphy_api">cSaTF4Z1U1GWQb2iri1nGY4HaoUFlGAZ</string>
+
+    <string name="version">1.1</string>
+
+    <string name="device">android</string>
+
+</resources>
