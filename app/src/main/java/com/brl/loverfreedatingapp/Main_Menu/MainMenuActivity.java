@@ -239,6 +239,11 @@ public class MainMenuActivity extends AppCompatActivity implements BillingProces
         //versionChecker.execute();
     }
 
+    public void reloadMainMenu(){
+
+
+    }
+
 
 
 }

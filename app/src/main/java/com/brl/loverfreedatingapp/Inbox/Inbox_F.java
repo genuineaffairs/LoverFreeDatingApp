@@ -3,7 +3,9 @@ package com.brl.loverfreedatingapp.Inbox;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -25,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.brl.loverfreedatingapp.getwholikedme.GetWhoLikedMe;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -164,7 +167,11 @@ public class Inbox_F extends RootFragment {
             public void onClick(View view) {
 
                 //Toast.makeText(context,"Working",Toast.LENGTH_LONG).show();
-                setForceMatch(MainMenuActivity.user_id,"8801834261758",MainMenuActivity.user_name,"Turzo");
+                //setForceMatch(MainMenuActivity.user_id,"8801834261758",MainMenuActivity.user_name,"Turzo");
+                Intent startIn = new Intent(getActivity(), GetWhoLikedMe.class);
+                getActivity().startActivity(startIn);
+                //getActivity().finish();
+
             }
         });
 
@@ -241,6 +248,56 @@ public class Inbox_F extends RootFragment {
         inbox_query.removeEventListener(eventListener2);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(GetWhoLikedMe.getWhoFlag){
+
+            //--
+            //Toast.makeText(context,"On Resume Called",Toast.LENGTH_LONG).show();
+
+            inbox_query=root_ref.child("Inbox").child(MainMenuActivity.user_id).orderByChild("date");
+            eventListener2=new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    inbox_arraylist.clear();
+
+                    for (DataSnapshot ds:dataSnapshot.getChildren()) {
+                        Inbox_Get_Set model = new Inbox_Get_Set();
+                        model.setId(ds.getKey());
+                        model.setName(ds.child("name").getValue().toString());
+                        model.setMessage(ds.child("msg").getValue().toString());
+                        model.setTimestamp(ds.child("date").getValue().toString());
+                        model.setStatus(ds.child("status").getValue().toString());
+                        model.setPicture(ds.child("pic").getValue().toString());
+                        inbox_arraylist.add(model);
+                    }
+                    Collections.reverse(inbox_arraylist);
+                    inbox_adapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            };
+
+            inbox_query.addValueEventListener(eventListener2);
+
+            GetWhoLikedMe.getWhoFlag = false;
+
+
+            //-----------
+
+        }else {
+
+
+        }
+
+
+
+    }
 
     //open the chat fragment and on item click and pass your id and the other person id in which
     //you want to chat with them and this parameter is that is we move from match list or inbox list
@@ -418,6 +475,7 @@ public class Inbox_F extends RootFragment {
             }
         });
     }
+
 
 
 

@@ -114,6 +114,8 @@ public class Variables {
 
     public static String deleteAccount=domain+"deleteAccount";
 
+    public static String getWhoLikedMe=domain+"getwholikedme";
+
 
 
 }
